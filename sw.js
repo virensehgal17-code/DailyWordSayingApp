@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wordofday-v2';
+const CACHE_NAME = 'wordofday-v3';
 const ASSETS = [
   './',
   './index.html',

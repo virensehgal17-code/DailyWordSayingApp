@@ -37,7 +37,7 @@
       <div class="date-label" id="dateLabel"></div>
       <div class="header-right">
         <button class="theme-toggle" id="themeToggle" onclick="toggleThemePicker()" title="Change theme">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.5-.6 1.5-1.5 0-.4-.1-.7-.3-1-.2-.3-.5-.7-.5-1 0-.9.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-5.5-4.5-10-10-10z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/></svg>
         </button>
         <div class="streak" id="streak" title="Your streak">🔥 <span id="streakCount">0</span></div>
       </div>
@@ -105,28 +105,51 @@
 
 <!-- Theme Picker Overlay -->
 <div class="theme-overlay" id="themeOverlay" onclick="closeThemePicker(event)">
-  <div class="theme-picker">
-    <div class="theme-picker-title">Choose Theme</div>
+  <div class="theme-picker" onclick="event.stopPropagation()">
+    <div class="theme-picker-header">
+      <div class="theme-picker-title">Choose Theme</div>
+      <button class="theme-close-btn" onclick="closeThemePicker()">✕</button>
+    </div>
     <div class="theme-options">
       <button class="theme-option" data-theme="midnight" onclick="setTheme('midnight')">
-        <span class="theme-swatch" style="background: linear-gradient(135deg, #0d0d1a, #1a1a2e, #533483)"></span>
-        <span class="theme-name">Midnight</span>
+        <span class="theme-swatch midnight-swatch"></span>
+        <div class="theme-info">
+          <span class="theme-name">Midnight</span>
+          <span class="theme-desc">Purple & navy</span>
+        </div>
+        <svg class="theme-check" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
       </button>
       <button class="theme-option" data-theme="ocean" onclick="setTheme('ocean')">
-        <span class="theme-swatch" style="background: linear-gradient(135deg, #0a192f, #0d3b66, #1a936f)"></span>
-        <span class="theme-name">Ocean</span>
+        <span class="theme-swatch ocean-swatch"></span>
+        <div class="theme-info">
+          <span class="theme-name">Ocean</span>
+          <span class="theme-desc">Teal & blue</span>
+        </div>
+        <svg class="theme-check" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
       </button>
       <button class="theme-option" data-theme="ember" onclick="setTheme('ember')">
-        <span class="theme-swatch" style="background: linear-gradient(135deg, #1a0a00, #4a1a0a, #b44d12)"></span>
-        <span class="theme-name">Ember</span>
+        <span class="theme-swatch ember-swatch"></span>
+        <div class="theme-info">
+          <span class="theme-name">Ember</span>
+          <span class="theme-desc">Warm & amber</span>
+        </div>
+        <svg class="theme-check" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
       </button>
       <button class="theme-option" data-theme="forest" onclick="setTheme('forest')">
-        <span class="theme-swatch" style="background: linear-gradient(135deg, #0a1a0a, #1a3a1a, #2d6a4f)"></span>
-        <span class="theme-name">Forest</span>
+        <span class="theme-swatch forest-swatch"></span>
+        <div class="theme-info">
+          <span class="theme-name">Forest</span>
+          <span class="theme-desc">Green & emerald</span>
+        </div>
+        <svg class="theme-check" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
       </button>
       <button class="theme-option" data-theme="mono" onclick="setTheme('mono')">
-        <span class="theme-swatch" style="background: linear-gradient(135deg, #111, #222, #444)"></span>
-        <span class="theme-name">Mono</span>
+        <span class="theme-swatch mono-swatch"></span>
+        <div class="theme-info">
+          <span class="theme-name">Mono</span>
+          <span class="theme-desc">Clean grayscale</span>
+        </div>
+        <svg class="theme-check" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
       </button>
     </div>
   </div>

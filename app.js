@@ -190,7 +190,7 @@ const sayings = [
   { text: "She speaks fluent sarcasm with a minor in eye rolls.", ctx: "Peak sass" },
 ];
 
-// ===== PALETTES =====
+// ===== PALETTES (used when theme is 'auto') =====
 const palettes = [
   ["#0d0d1a","#1a1a2e","#533483"], ["#0d1117","#161b22","#1f6feb"],
   ["#1a1a2e","#16213e","#0f3460"], ["#2d132c","#801336","#c72c41"],
@@ -201,12 +201,22 @@ const palettes = [
   ["#0f0e17","#232946","#b8c1ec"], ["#141e30","#243b55","#6c63ff"],
 ];
 
+// ===== THEMES =====
+const themes = {
+  midnight: { gradient: ["#0d0d1a","#1a1a2e","#533483"], particle: "167,139,250" },
+  ocean:    { gradient: ["#0a192f","#0d3b66","#1a936f"], particle: "34,211,238" },
+  ember:    { gradient: ["#1a0a00","#4a1a0a","#b44d12"], particle: "251,146,60" },
+  forest:   { gradient: ["#0a1a0a","#1a3a1a","#2d6a4f"], particle: "74,222,128" },
+  mono:     { gradient: ["#111111","#222222","#444444"], particle: "226,232,240" },
+};
+let currentTheme = localStorage.getItem('wotd_theme') || 'midnight';
+
 // ===== CORE LOGIC =====
 const EPOCH = new Date(2025, 0, 1);
 
 function getDayIndex(date) {
-  const d = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  const e = new Date(EPOCH.getFullYear(), EPOCH.getMonth(), EPOCH.getDate());
+  const d = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
+  const e = Date.UTC(EPOCH.getFullYear(), EPOCH.getMonth(), EPOCH.getDate());
   return Math.floor((d - e) / 86400000);
 }
 
@@ -273,10 +283,17 @@ function render() {
   const dayIdx = getDayIndex(currentDate);
   const w = getItemForDay(words, dayIdx, 42);
   const s = getItemForDay(sayings, dayIdx, 77);
-  const pRng = seededRandom(dayIdx + 123);
-  const p = palettes[Math.floor(pRng() * palettes.length)];
   currentWord = w.word;
 
+  // Use theme gradient or daily random palette
+  const t = themes[currentTheme];
+  let p;
+  if (t) {
+    p = t.gradient;
+  } else {
+    const pRng = seededRandom(dayIdx + 123);
+    p = palettes[Math.floor(pRng() * palettes.length)];
+  }
   document.body.style.background = `linear-gradient(135deg, ${p[0]}, ${p[1]}, ${p[2]})`;
 
   const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -449,7 +466,8 @@ function dismissInstall() {
     particles.forEach(p => {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(167,139,250,${p.o})`;
+      const pc = (themes[currentTheme] || themes.midnight).particle;
+      ctx.fillStyle = `rgba(${pc},${p.o})`;
       ctx.fill();
       p.x += p.dx; p.y += p.dy;
       if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
@@ -472,7 +490,40 @@ if ('serviceWorker' in navigator) {
   }).catch(err => console.log('SW registration failed:', err));
 }
 
+// ===== THEME PICKER =====
+function toggleThemePicker() {
+  document.getElementById('themeOverlay').classList.toggle('show');
+  updateThemePickerUI();
+}
+
+function closeThemePicker(e) {
+  if (e.target === document.getElementById('themeOverlay')) {
+    document.getElementById('themeOverlay').classList.remove('show');
+  }
+}
+
+function setTheme(name) {
+  currentTheme = name;
+  localStorage.setItem('wotd_theme', name);
+  document.documentElement.setAttribute('data-theme', name);
+  render();
+  updateThemePickerUI();
+  document.getElementById('themeOverlay').classList.remove('show');
+}
+
+function updateThemePickerUI() {
+  document.querySelectorAll('.theme-option').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-theme') === currentTheme);
+  });
+}
+
+function initTheme() {
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  updateThemePickerUI();
+}
+
 // ===== INIT =====
+initTheme();
 render();
 updateStreak();
 updateNotifUI();

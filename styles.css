@@ -211,3 +211,58 @@ body {
 .card.swiping-left { transform: translateX(-8px) rotate(-0.5deg); }
 .card.swiping-right { transform: translateX(8px) rotate(0.5deg); }
 .card.swiping-left, .card.swiping-right { transition: transform 0.1s ease; }
+
+/* ===== Theme Toggle Button ===== */
+.theme-toggle {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+  color: var(--text-muted); cursor: pointer; padding: 5px 8px;
+  border-radius: 20px; display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.theme-toggle:hover { color: var(--accent); background: rgba(255,255,255,0.1); }
+
+/* ===== Theme Picker Overlay ===== */
+.theme-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+  display: none; align-items: center; justify-content: center;
+  animation: fadeIn 0.25s ease;
+}
+.theme-overlay.show { display: flex; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.theme-picker {
+  background: rgba(30,30,50,0.95); backdrop-filter: blur(20px);
+  border-radius: 24px; padding: 28px; border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  min-width: 280px; animation: scaleIn 0.3s cubic-bezier(.4,0,.2,1);
+}
+@keyframes scaleIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.theme-picker-title {
+  font-size: 16px; font-weight: 700; color: var(--text-primary);
+  text-align: center; margin-bottom: 20px; letter-spacing: 0.5px;
+}
+.theme-options { display: flex; flex-direction: column; gap: 10px; }
+.theme-option {
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.06);
+  border-radius: 14px; padding: 12px 16px; cursor: pointer;
+  transition: all 0.2s ease; font-family: inherit;
+}
+.theme-option:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); }
+.theme-option.active { border-color: var(--accent); background: rgba(167,139,250,0.08); }
+.theme-swatch {
+  width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.theme-name { font-size: 15px; font-weight: 600; color: var(--text-secondary); }
+
+/* ===== Theme: Ocean ===== */
+[data-theme="ocean"] { --accent: #22d3ee; --accent-glow: rgba(34,211,238,0.3); }
+/* ===== Theme: Ember ===== */
+[data-theme="ember"] { --accent: #fb923c; --accent-glow: rgba(251,146,60,0.3); }
+/* ===== Theme: Forest ===== */
+[data-theme="forest"] { --accent: #4ade80; --accent-glow: rgba(74,222,128,0.3); }
+/* ===== Theme: Mono ===== */
+[data-theme="mono"] { --accent: #e2e8f0; --accent-glow: rgba(226,232,240,0.2); }

@@ -1,85 +1,2560 @@
-// ===== WORD DATA =====
+﻿// ===== WORD DATA =====
 const words = [
-  { word: "Pragmatic", pron: "prag-MAT-ik", pos: "Adjective", def: "Dealing with things sensibly and realistically in a way that is based on practical rather than theoretical considerations.", ex: "Instead of hoping for a miracle, she took a pragmatic approach to solving the budget crisis." },
-  { word: "Ubiquitous", pron: "yoo-BIK-wih-tus", pos: "Adjective", def: "Present, appearing, or found everywhere.", ex: "Smartphones have become a ubiquitous part of modern life." },
-  { word: "Tenacious", pron: "teh-NAY-shus", pos: "Adjective", def: "Tending to keep a firm hold of something; clinging or adhering closely. Not easily stopped or discouraged.", ex: "His tenacious spirit allowed him to finish the marathon despite the injury." },
-  { word: "Candid", pron: "KAN-did", pos: "Adjective", def: "Truthful and straightforward; frank.", ex: "I appreciate your candid feedback on my presentation." },
-  { word: "Meticulous", pron: "muh-TIK-yuh-lus", pos: "Adjective", def: "Showing great attention to detail; very careful and precise.", ex: "The artist was completely meticulous in painting the tiny details of the portrait." },
-  { word: "Eloquent", pron: "EL-uh-kwent", pos: "Adjective", def: "Fluent or persuasive in speaking or writing.", ex: "She gave an eloquent speech that moved the entire audience to tears." },
-  { word: "Resilient", pron: "rih-ZIL-yunt", pos: "Adjective", def: "Able to withstand or recover quickly from difficult conditions.", ex: "Children are often far more resilient than we give them credit for." },
-  { word: "Lucid", pron: "LOO-sid", pos: "Adjective", def: "Expressed clearly; easy to understand. Thinking clearly.", ex: "The professor gave a lucid explanation of a very complex theory." },
-  { word: "Ambiguous", pron: "am-BIG-yoo-us", pos: "Adjective", def: "Open to more than one interpretation; having a double meaning.", ex: "The instructions on the box were so ambiguous that I built the chair backward." },
-  { word: "Amiable", pron: "AY-mee-uh-bul", pos: "Adjective", def: "Having or displaying a friendly and pleasant manner.", ex: "The new neighbor was very amiable, bringing over cookies on her first day." },
-  { word: "Diligent", pron: "DIL-ih-junt", pos: "Adjective", def: "Having or showing care and conscientiousness in one's work or duties.", ex: "Through diligent effort, he managed to learn a new language in six months." },
-  { word: "Empathy", pron: "EM-puh-thee", pos: "Noun", def: "The ability to understand and share the feelings of another.", ex: "A good leader leads not just with authority, but with deep empathy." },
-  { word: "Inevitably", pron: "in-EV-ih-tuh-blee", pos: "Adverb", def: "As is certain to happen; unavoidably.", ex: "If you leave the cake on the counter, the dog will inevitably eat it." },
-  { word: "Prolific", pron: "pruh-LIF-ik", pos: "Adjective", def: "Producing much fruit or foliage or many offspring. Present in large numbers or quantities.", ex: "Stephen King is a highly prolific author, publishing a new book almost every year." },
-  { word: "Cynical", pron: "SIN-ih-kul", pos: "Adjective", def: "Believing that people are motivated by self-interest; distrustful of human sincerity or integrity.", ex: "After years in politics, he developed a somewhat cynical view of humanity." },
-  { word: "Nostalgia", pron: "nuh-STAL-juh", pos: "Noun", def: "A sentimental longing or wistful affection for the past.", ex: "Hearing that 90s pop song filled him with a sudden wave of nostalgia." },
-  { word: "Articulate", pron: "ar-TIK-yuh-lit", pos: "Adjective", def: "Having or showing the ability to speak fluently and coherently.", ex: "She is an incredibly articulate speaker who can explain complex ideas to anyone." },
-  { word: "Objective", pron: "ub-JEK-tiv", pos: "Adjective", def: "Not influenced by personal feelings or opinions in considering and representing facts.", ex: "A judge must remain strictly objective during a trial." },
-  { word: "Subjective", pron: "sub-JEK-tiv", pos: "Adjective", def: "Based on or influenced by personal feelings, tastes, or opinions.", ex: "Whether that movie is a masterpiece or a disaster is entirely subjective." },
-  { word: "Versatile", pron: "VER-suh-tul", pos: "Adjective", def: "Able to adapt or be adapted to many different functions or activities.", ex: "The potato is a highly versatile vegetable." },
-  { word: "Vindicate", pron: "VIN-dih-kayt", pos: "Verb", def: "Clear someone of blame or suspicion. Show or prove to be right, reasonable, or justified.", ex: "The new DNA evidence will completely vindicate him." },
-  { word: "Superfluous", pron: "soo-PER-floo-us", pos: "Adjective", def: "Unnecessary, especially through being more than enough.", ex: "The speaker's superfluous remarks made the presentation twice as long as needed." },
-  { word: "Trivial", pron: "TRIV-ee-ul", pos: "Adjective", def: "Of little value or importance.", ex: "They spent the whole meeting arguing over trivial details instead of the big picture." },
-  { word: "Scrutinize", pron: "SKROO-tih-nyz", pos: "Verb", def: "Examine or inspect closely and thoroughly.", ex: "The accountant will carefully scrutinize every receipt before approving the budget." },
-  { word: "Audacious", pron: "aw-DAY-shus", pos: "Adjective", def: "Showing a willingness to take surprisingly bold risks.", ex: "It was an audacious plan, but it just might work." },
-  { word: "Plausible", pron: "PLAW-zih-bul", pos: "Adjective", def: "Seeming reasonable or probable.", ex: "That sounds like a plausible excuse for being late." },
-  { word: "Tangible", pron: "TAN-jih-bul", pos: "Adjective", def: "Perceptible by touch. Clear and definite; real.", ex: "After months of work, they finally had a tangible product to show investors." },
-  { word: "Subtle", pron: "SUT-ul", pos: "Adjective", def: "So delicate or precise as to be difficult to analyze or describe.", ex: "There was a subtle change in his tone that told me he was lying." },
-  { word: "Compelling", pron: "kum-PEL-ing", pos: "Adjective", def: "Evoking interest, attention, or admiration in a powerfully irresistible way.", ex: "The documentary presented a compelling argument for climate action." },
-  { word: "Empirical", pron: "im-PIR-ih-kul", pos: "Adjective", def: "Based on, concerned with, or verifiable by observation or experience rather than theory or pure logic.", ex: "We need empirical data to prove that this new treatment actually works." },
-  { word: "Intrinsic", pron: "in-TRIN-zik", pos: "Adjective", def: "Belonging naturally; essential.", ex: "Access to clean water is an intrinsic human right." },
-  { word: "Nuance", pron: "NOO-ahns", pos: "Noun", def: "A subtle difference in or shade of meaning, expression, or sound.", ex: "The online debate completely lacked the nuance of a face-to-face conversation." },
-  { word: "Intuitive", pron: "in-TOO-ih-tiv", pos: "Adjective", def: "Using or based on what one feels to be true even without conscious reasoning; instinctive.", ex: "The software's interface is very intuitive; you don't even need a manual." },
-  { word: "Rapport", pron: "ra-POR", pos: "Noun", def: "A close and harmonious relationship in which the people or groups understand each other's feelings or ideas.", ex: "The teacher built a great rapport with her students from day one." },
-  { word: "Proactive", pron: "pro-AK-tiv", pos: "Adjective", def: "Creating or controlling a situation by causing something to happen rather than responding to it after it has happened.", ex: "Being proactive about your health is much better than waiting to get sick." },
-  { word: "Pinnacle", pron: "PIN-uh-kul", pos: "Noun", def: "The most successful point; the culmination.", ex: "Winning the Nobel Prize was the absolute pinnacle of his career." },
-  { word: "Exacerbate", pron: "ig-ZAS-er-bayt", pos: "Verb", def: "Make a problem, bad situation, or negative feeling worse.", ex: "Yelling at him when he's stressed will only exacerbate the situation." },
-  { word: "Mitigate", pron: "MIT-ih-gayt", pos: "Verb", def: "Make less severe, serious, or painful.", ex: "Planting trees can help mitigate the effects of global warming." },
-  { word: "Cynic", pron: "SIN-ik", pos: "Noun", def: "A person who believes that people are motivated purely by self-interest rather than acting for honorable or unselfish reasons.", ex: "He's such a cynic; he never believes anyone does anything just out of kindness." },
-  { word: "Validate", pron: "VAL-ih-dayt", pos: "Verb", def: "Check or prove the validity or accuracy of something. Demonstrate or support the truth or value of.", ex: "The clinical trials will validate whether the new drug is safe." },
-  { word: "Catalyst", pron: "KAT-uh-list", pos: "Noun", def: "A person or thing that precipitates an event or accelerates a change.", ex: "The protest acted as a catalyst for massive political reform." },
-  { word: "Volatile", pron: "VAH-luh-tul", pos: "Adjective", def: "Liable to change rapidly and unpredictably, especially for the worse.", ex: "The stock market has been incredibly volatile this week." },
-  { word: "Endeavor", pron: "in-DEV-er", pos: "Verb / Noun", def: "Try hard to do or achieve something. An attempt to achieve a goal.", ex: "Starting a new business is a challenging but rewarding endeavor." },
-  { word: "Feasible", pron: "FEE-zuh-bul", pos: "Adjective", def: "Possible to do easily or conveniently.", ex: "Building a bridge across the ocean simply isn't technically feasible yet." },
-  { word: "Notorious", pron: "noh-TOR-ee-us", pos: "Adjective", def: "Famous or well known, typically for some bad quality or deed.", ex: "The intersection is notorious for terrible traffic accidents." },
-  { word: "Redundant", pos: "Adjective", pron: "rih-DUN-dunt", def: "Not or no longer needed or useful; superfluous.", ex: "Having three backup generators is slightly redundant, but very safe." },
-  { word: "Impartial", pos: "Adjective", pron: "im-PAR-shul", def: "Treating all rivals or disputants equally; fair and just.", ex: "A referee must remain completely impartial during the game." },
-  { word: "Pertinent", pos: "Adjective", pron: "PER-tih-nunt", def: "Relevant or applicable to a particular matter; apposite.", ex: "Please stick to questions that are pertinent to today's lesson." },
-  { word: "Vulnerable", pos: "Adjective", pron: "VUL-ner-uh-bul", def: "Susceptible to physical or emotional attack or harm.", ex: "The city's power grid is highly vulnerable to cyber attacks." },
-  { word: "Paradigm", pos: "Noun", pron: "PAR-uh-dym", def: "A typical example or pattern of something; a model.", ex: "The invention of the smartphone created a new paradigm in communication." },
-  { word: "Opaque", pos: "Adjective", pron: "oh-PAYK", def: "Not able to be seen through; not transparent. Hard to understand.", ex: "The company's hiring process is entirely opaque; no one knows how they decide." },
-  { word: "Transparent", pos: "Adjective", pron: "trans-PAR-ent", def: "Allowing light to pass through so that objects behind can be distinctly seen. Easy to perceive or detect.", ex: "The government promised to be fully transparent about how the funds are spent." },
-  { word: "Elicit", pos: "Verb", pron: "ih-LIS-it", def: "Evoke or draw out (a response, answer, or fact) from someone in reaction to one's own actions or questions.", ex: "Her tragic story elicited a lot of sympathy from the audience." },
-  { word: "Incentive", pos: "Noun", pron: "in-SEN-tiv", def: "A thing that motivates or encourages one to do something.", ex: "The bonus check was a great incentive to hit our sales goals this month." },
-  { word: "Prevalent", pos: "Adjective", pron: "PREV-uh-lunt", def: "Widespread in a particular area or at a particular time.", ex: "Fake news is becoming distressingly prevalent on social media." },
-  { word: "Deter", pos: "Verb", pron: "dih-TUR", def: "Discourage someone from doing something by instilling doubt or fear of the consequences.", ex: "The severe fines are meant to deter drivers from speeding." },
-  { word: "Advocate", pos: "Verb / Noun", pron: "AD-vuh-kayt", def: "Publicly recommend or support.", ex: "She is a strong advocate for animal rights and environmental protection." },
-  { word: "Reiterate", pos: "Verb", pron: "ree-IT-uh-rayt", def: "Say something again or a number of times, typically for emphasis or clarity.", ex: "Let me reiterate: the deadline is absolutely non-negotiable." },
-  { word: "Frivolous", pos: "Adjective", pron: "FRIV-uh-lus", def: "Not having any serious purpose or value.", ex: "He wasted his entire paycheck on frivolous purchases." },
-  { word: "Concede", pos: "Verb", pron: "kun-SEED", def: "Admit that something is true or valid after first denying or resisting it. Surrender or yield.", ex: "After looking at the data, I have to concede that you were right." },
-  { word: "Pervasive", pos: "Adjective", pron: "per-VAY-siv", def: "Spreading widely throughout an area or a group of people.", ex: "The belief that money buys happiness is a pervasive misconception." },
-  { word: "Skeptical", pos: "Adjective", pron: "SKEP-tih-kul", def: "Not easily convinced; having doubts or reservations.", ex: "I'm highly skeptical of any product that claims to be a 'miracle cure.'" },
-  { word: "Ambivalent", pos: "Adjective", pron: "am-BIV-uh-lunt", def: "Having mixed feelings or contradictory ideas about something or someone.", ex: "She felt deeply ambivalent about moving to a new city." },
-  { word: "Pivotal", pos: "Adjective", pron: "PIV-uh-tul", def: "Of crucial importance in relation to the development or success of something else.", ex: "The battle was a pivotal moment in the nation's history." },
-  { word: "Superficial", pos: "Adjective", pron: "soo-per-FISH-ul", def: "Existing or occurring at or on the surface. Not thorough, deep, or complete.", ex: "Their relationship was entirely superficial; they never talked about anything serious." },
-  { word: "Reconcile", pos: "Verb", pron: "REK-un-syl", def: "Restore friendly relations between. Cause to coexist in harmony.", ex: "It was difficult to reconcile his generous public persona with his private greed." },
-  { word: "Prerequisite", pos: "Noun", pron: "pree-REK-wih-zit", def: "A thing that is required as a prior condition for something else to happen or exist.", ex: "Passing Biology 101 is a prerequisite for enrolling in Anatomy." },
-  { word: "Arbitrary", pos: "Adjective", pron: "AR-bih-trair-ee", def: "Based on random choice or personal whim, rather than any reason or system.", ex: "The school's dress code policy seemed entirely arbitrary and unfair." },
-  { word: "Comprehend", pos: "Verb", pron: "kom-pri-HEND", def: "Grasp mentally; understand.", ex: "I simply cannot comprehend why someone would leave a dog in a hot car." },
-  { word: "Discrepancy", pos: "Noun", pron: "dih-SKREP-un-see", def: "A lack of compatibility or similarity between two or more facts.", ex: "There is a major discrepancy between what he said yesterday and what he is saying today." },
-  { word: "Evoke", pos: "Verb", pron: "ih-VOHK", def: "Bring or recall to the conscious mind.", ex: "The smell of baking bread always evokes memories of my grandmother's kitchen." },
-  { word: "Lethargic", pos: "Adjective", pron: "luh-THAR-jik", def: "Affected by lethargy; sluggish and apathetic.", ex: "Eating a giant bowl of pasta for lunch always makes me feel lethargic all afternoon." },
-  { word: "Obsolete", pos: "Adjective", pron: "ob-suh-LEET", def: "No longer produced or used; out of date.", ex: "The invention of the smartphone rendered my old digital camera totally obsolete." },
-  { word: "Proponent", pos: "Noun", pron: "pruh-POH-nunt", def: "A person who advocates a theory, proposal, or project.", ex: "He is a strong proponent of renewable energy subsidies." },
-  { word: "Retaliate", pos: "Verb", pron: "rih-TAL-ee-ayt", def: "Make an attack or assault in return for a similar attack.", ex: "If you attack them, they will certainly retaliate with full force." },
-  { word: "Viable", pos: "Adjective", pron: "VY-uh-bul", def: "Capable of working successfully; feasible.", ex: "Solar power is now a highly viable alternative to fossil fuels." },
-  { word: "Affinity", pos: "Noun", pron: "uh-FIN-ih-tee", def: "A spontaneous or natural liking or sympathy for someone or something.", ex: "She's always had a natural affinity for working with animals." },
-  { word: "Dilute", pos: "Verb", pron: "dy-LOOT", def: "Make a liquid thinner or weaker by adding water or another solvent. Make simpler or less potent.", ex: "I had to dilute the concentrated cleaner with water before using it." },
-  { word: "Convey", pos: "Verb", pron: "kun-VAY", def: "Make (an idea, impression, or feeling) known or understandable to someone.", ex: "Please convey my deepest apologies to your parents for missing the dinner." },
-  { word: "Aesthetic", pos: "Adjective", pron: "es-THET-ik", def: "Concerned with beauty or the appreciation of beauty.", ex: "The new cafe has a very modern, minimalist aesthetic." },
+    {
+        "word":  "Pragmatic",
+        "pron":  "prag-MAT-ik",
+        "pos":  "Adjective",
+        "def":  "Dealing with things sensibly and realistically in a way that is based on practical rather than theoretical considerations.",
+        "ex":  "Instead of hoping for a miracle, she took a pragmatic approach to solving the budget crisis."
+    },
+    {
+        "word":  "Ubiquitous",
+        "pron":  "yoo-BIK-wih-tus",
+        "pos":  "Adjective",
+        "def":  "Present, appearing, or found everywhere.",
+        "ex":  "Smartphones have become a ubiquitous part of modern life."
+    },
+    {
+        "word":  "Tenacious",
+        "pron":  "teh-NAY-shus",
+        "pos":  "Adjective",
+        "def":  "Tending to keep a firm hold of something; clinging or adhering closely. Not easily stopped or discouraged.",
+        "ex":  "His tenacious spirit allowed him to finish the marathon despite the injury."
+    },
+    {
+        "word":  "Candid",
+        "pron":  "KAN-did",
+        "pos":  "Adjective",
+        "def":  "Truthful and straightforward; frank.",
+        "ex":  "I appreciate your candid feedback on my presentation."
+    },
+    {
+        "word":  "Meticulous",
+        "pron":  "muh-TIK-yuh-lus",
+        "pos":  "Adjective",
+        "def":  "Showing great attention to detail; very careful and precise.",
+        "ex":  "The artist was completely meticulous in painting the tiny details of the portrait."
+    },
+    {
+        "word":  "Eloquent",
+        "pron":  "EL-uh-kwent",
+        "pos":  "Adjective",
+        "def":  "Fluent or persuasive in speaking or writing.",
+        "ex":  "She gave an eloquent speech that moved the entire audience to tears."
+    },
+    {
+        "word":  "Resilient",
+        "pron":  "rih-ZIL-yunt",
+        "pos":  "Adjective",
+        "def":  "Able to withstand or recover quickly from difficult conditions.",
+        "ex":  "Children are often far more resilient than we give them credit for."
+    },
+    {
+        "word":  "Lucid",
+        "pron":  "LOO-sid",
+        "pos":  "Adjective",
+        "def":  "Expressed clearly; easy to understand. Thinking clearly.",
+        "ex":  "The professor gave a lucid explanation of a very complex theory."
+    },
+    {
+        "word":  "Ambiguous",
+        "pron":  "am-BIG-yoo-us",
+        "pos":  "Adjective",
+        "def":  "Open to more than one interpretation; having a double meaning.",
+        "ex":  "The instructions on the box were so ambiguous that I built the chair backward."
+    },
+    {
+        "word":  "Amiable",
+        "pron":  "AY-mee-uh-bul",
+        "pos":  "Adjective",
+        "def":  "Having or displaying a friendly and pleasant manner.",
+        "ex":  "The new neighbor was very amiable, bringing over cookies on her first day."
+    },
+    {
+        "word":  "Diligent",
+        "pron":  "DIL-ih-junt",
+        "pos":  "Adjective",
+        "def":  "Having or showing care and conscientiousness in one\u0027s work or duties.",
+        "ex":  "Through diligent effort, he managed to learn a new language in six months."
+    },
+    {
+        "word":  "Empathy",
+        "pron":  "EM-puh-thee",
+        "pos":  "Noun",
+        "def":  "The ability to understand and share the feelings of another.",
+        "ex":  "A good leader leads not just with authority, but with deep empathy."
+    },
+    {
+        "word":  "Inevitably",
+        "pron":  "in-EV-ih-tuh-blee",
+        "pos":  "Adverb",
+        "def":  "As is certain to happen; unavoidably.",
+        "ex":  "If you leave the cake on the counter, the dog will inevitably eat it."
+    },
+    {
+        "word":  "Prolific",
+        "pron":  "pruh-LIF-ik",
+        "pos":  "Adjective",
+        "def":  "Producing much fruit or foliage or many offspring. Present in large numbers or quantities.",
+        "ex":  "Stephen King is a highly prolific author, publishing a new book almost every year."
+    },
+    {
+        "word":  "Cynical",
+        "pron":  "SIN-ih-kul",
+        "pos":  "Adjective",
+        "def":  "Believing that people are motivated by self-interest; distrustful of human sincerity or integrity.",
+        "ex":  "After years in politics, he developed a somewhat cynical view of humanity."
+    },
+    {
+        "word":  "Nostalgia",
+        "pron":  "nuh-STAL-juh",
+        "pos":  "Noun",
+        "def":  "A sentimental longing or wistful affection for the past.",
+        "ex":  "Hearing that 90s pop song filled him with a sudden wave of nostalgia."
+    },
+    {
+        "word":  "Articulate",
+        "pron":  "ar-TIK-yuh-lit",
+        "pos":  "Adjective",
+        "def":  "Having or showing the ability to speak fluently and coherently.",
+        "ex":  "She is an incredibly articulate speaker who can explain complex ideas to anyone."
+    },
+    {
+        "word":  "Objective",
+        "pron":  "ub-JEK-tiv",
+        "pos":  "Adjective",
+        "def":  "Not influenced by personal feelings or opinions in considering and representing facts.",
+        "ex":  "A judge must remain strictly objective during a trial."
+    },
+    {
+        "word":  "Subjective",
+        "pron":  "sub-JEK-tiv",
+        "pos":  "Adjective",
+        "def":  "Based on or influenced by personal feelings, tastes, or opinions.",
+        "ex":  "Whether that movie is a masterpiece or a disaster is entirely subjective."
+    },
+    {
+        "word":  "Versatile",
+        "pron":  "VER-suh-tul",
+        "pos":  "Adjective",
+        "def":  "Able to adapt or be adapted to many different functions or activities.",
+        "ex":  "The potato is a highly versatile vegetable."
+    },
+    {
+        "word":  "Vindicate",
+        "pron":  "VIN-dih-kayt",
+        "pos":  "Verb",
+        "def":  "Clear someone of blame or suspicion. Show or prove to be right, reasonable, or justified.",
+        "ex":  "The new DNA evidence will completely vindicate him."
+    },
+    {
+        "word":  "Superfluous",
+        "pron":  "soo-PER-floo-us",
+        "pos":  "Adjective",
+        "def":  "Unnecessary, especially through being more than enough.",
+        "ex":  "The speaker\u0027s superfluous remarks made the presentation twice as long as needed."
+    },
+    {
+        "word":  "Trivial",
+        "pron":  "TRIV-ee-ul",
+        "pos":  "Adjective",
+        "def":  "Of little value or importance.",
+        "ex":  "They spent the whole meeting arguing over trivial details instead of the big picture."
+    },
+    {
+        "word":  "Scrutinize",
+        "pron":  "SKROO-tih-nyz",
+        "pos":  "Verb",
+        "def":  "Examine or inspect closely and thoroughly.",
+        "ex":  "The accountant will carefully scrutinize every receipt before approving the budget."
+    },
+    {
+        "word":  "Audacious",
+        "pron":  "aw-DAY-shus",
+        "pos":  "Adjective",
+        "def":  "Showing a willingness to take surprisingly bold risks.",
+        "ex":  "It was an audacious plan, but it just might work."
+    },
+    {
+        "word":  "Plausible",
+        "pron":  "PLAW-zih-bul",
+        "pos":  "Adjective",
+        "def":  "Seeming reasonable or probable.",
+        "ex":  "That sounds like a plausible excuse for being late."
+    },
+    {
+        "word":  "Tangible",
+        "pron":  "TAN-jih-bul",
+        "pos":  "Adjective",
+        "def":  "Perceptible by touch. Clear and definite; real.",
+        "ex":  "After months of work, they finally had a tangible product to show investors."
+    },
+    {
+        "word":  "Subtle",
+        "pron":  "SUT-ul",
+        "pos":  "Adjective",
+        "def":  "So delicate or precise as to be difficult to analyze or describe.",
+        "ex":  "There was a subtle change in his tone that told me he was lying."
+    },
+    {
+        "word":  "Compelling",
+        "pron":  "kum-PEL-ing",
+        "pos":  "Adjective",
+        "def":  "Evoking interest, attention, or admiration in a powerfully irresistible way.",
+        "ex":  "The documentary presented a compelling argument for climate action."
+    },
+    {
+        "word":  "Empirical",
+        "pron":  "im-PIR-ih-kul",
+        "pos":  "Adjective",
+        "def":  "Based on, concerned with, or verifiable by observation or experience rather than theory or pure logic.",
+        "ex":  "We need empirical data to prove that this new treatment actually works."
+    },
+    {
+        "word":  "Intrinsic",
+        "pron":  "in-TRIN-zik",
+        "pos":  "Adjective",
+        "def":  "Belonging naturally; essential.",
+        "ex":  "Access to clean water is an intrinsic human right."
+    },
+    {
+        "word":  "Nuance",
+        "pron":  "NOO-ahns",
+        "pos":  "Noun",
+        "def":  "A subtle difference in or shade of meaning, expression, or sound.",
+        "ex":  "The online debate completely lacked the nuance of a face-to-face conversation."
+    },
+    {
+        "word":  "Intuitive",
+        "pron":  "in-TOO-ih-tiv",
+        "pos":  "Adjective",
+        "def":  "Using or based on what one feels to be true even without conscious reasoning; instinctive.",
+        "ex":  "The software\u0027s interface is very intuitive; you don\u0027t even need a manual."
+    },
+    {
+        "word":  "Rapport",
+        "pron":  "ra-POR",
+        "pos":  "Noun",
+        "def":  "A close and harmonious relationship in which the people or groups understand each other\u0027s feelings or ideas.",
+        "ex":  "The teacher built a great rapport with her students from day one."
+    },
+    {
+        "word":  "Proactive",
+        "pron":  "pro-AK-tiv",
+        "pos":  "Adjective",
+        "def":  "Creating or controlling a situation by causing something to happen rather than responding to it after it has happened.",
+        "ex":  "Being proactive about your health is much better than waiting to get sick."
+    },
+    {
+        "word":  "Pinnacle",
+        "pron":  "PIN-uh-kul",
+        "pos":  "Noun",
+        "def":  "The most successful point; the culmination.",
+        "ex":  "Winning the Nobel Prize was the absolute pinnacle of his career."
+    },
+    {
+        "word":  "Exacerbate",
+        "pron":  "ig-ZAS-er-bayt",
+        "pos":  "Verb",
+        "def":  "Make a problem, bad situation, or negative feeling worse.",
+        "ex":  "Yelling at him when he\u0027s stressed will only exacerbate the situation."
+    },
+    {
+        "word":  "Mitigate",
+        "pron":  "MIT-ih-gayt",
+        "pos":  "Verb",
+        "def":  "Make less severe, serious, or painful.",
+        "ex":  "Planting trees can help mitigate the effects of global warming."
+    },
+    {
+        "word":  "Cynic",
+        "pron":  "SIN-ik",
+        "pos":  "Noun",
+        "def":  "A person who believes that people are motivated purely by self-interest rather than acting for honorable or unselfish reasons.",
+        "ex":  "He\u0027s such a cynic; he never believes anyone does anything just out of kindness."
+    },
+    {
+        "word":  "Validate",
+        "pron":  "VAL-ih-dayt",
+        "pos":  "Verb",
+        "def":  "Check or prove the validity or accuracy of something. Demonstrate or support the truth or value of.",
+        "ex":  "The clinical trials will validate whether the new drug is safe."
+    },
+    {
+        "word":  "Catalyst",
+        "pron":  "KAT-uh-list",
+        "pos":  "Noun",
+        "def":  "A person or thing that precipitates an event or accelerates a change.",
+        "ex":  "The protest acted as a catalyst for massive political reform."
+    },
+    {
+        "word":  "Volatile",
+        "pron":  "VAH-luh-tul",
+        "pos":  "Adjective",
+        "def":  "Liable to change rapidly and unpredictably, especially for the worse.",
+        "ex":  "The stock market has been incredibly volatile this week."
+    },
+    {
+        "word":  "Endeavor",
+        "pron":  "in-DEV-er",
+        "pos":  "Verb",
+        "def":  "Try hard to do or achieve something. An attempt to achieve a goal.",
+        "ex":  "Starting a new business is a challenging but rewarding endeavor."
+    },
+    {
+        "word":  "Feasible",
+        "pron":  "FEE-zuh-bul",
+        "pos":  "Adjective",
+        "def":  "Possible to do easily or conveniently.",
+        "ex":  "Building a bridge across the ocean simply isn\u0027t technically feasible yet."
+    },
+    {
+        "word":  "Notorious",
+        "pron":  "noh-TOR-ee-us",
+        "pos":  "Adjective",
+        "def":  "Famous or well known, typically for some bad quality or deed.",
+        "ex":  "The intersection is notorious for terrible traffic accidents."
+    },
+    {
+        "word":  "Redundant",
+        "pos":  "Adjective",
+        "pron":  "rih-DUN-dunt",
+        "def":  "Not or no longer needed or useful; superfluous.",
+        "ex":  "Having three backup generators is slightly redundant, but very safe."
+    },
+    {
+        "word":  "Impartial",
+        "pos":  "Adjective",
+        "pron":  "im-PAR-shul",
+        "def":  "Treating all rivals or disputants equally; fair and just.",
+        "ex":  "A referee must remain completely impartial during the game."
+    },
+    {
+        "word":  "Pertinent",
+        "pos":  "Adjective",
+        "pron":  "PER-tih-nunt",
+        "def":  "Relevant or applicable to a particular matter; apposite.",
+        "ex":  "Please stick to questions that are pertinent to today\u0027s lesson."
+    },
+    {
+        "word":  "Vulnerable",
+        "pos":  "Adjective",
+        "pron":  "VUL-ner-uh-bul",
+        "def":  "Susceptible to physical or emotional attack or harm.",
+        "ex":  "The city\u0027s power grid is highly vulnerable to cyber attacks."
+    },
+    {
+        "word":  "Paradigm",
+        "pos":  "Noun",
+        "pron":  "PAR-uh-dym",
+        "def":  "A typical example or pattern of something; a model.",
+        "ex":  "The invention of the smartphone created a new paradigm in communication."
+    },
+    {
+        "word":  "Opaque",
+        "pos":  "Adjective",
+        "pron":  "oh-PAYK",
+        "def":  "Not able to be seen through; not transparent. Hard to understand.",
+        "ex":  "The company\u0027s hiring process is entirely opaque; no one knows how they decide."
+    },
+    {
+        "word":  "Transparent",
+        "pos":  "Adjective",
+        "pron":  "trans-PAR-ent",
+        "def":  "Allowing light to pass through so that objects behind can be distinctly seen. Easy to perceive or detect.",
+        "ex":  "The government promised to be fully transparent about how the funds are spent."
+    },
+    {
+        "word":  "Elicit",
+        "pos":  "Verb",
+        "pron":  "ih-LIS-it",
+        "def":  "Evoke or draw out (a response, answer, or fact) from someone in reaction to one\u0027s own actions or questions.",
+        "ex":  "Her tragic story elicited a lot of sympathy from the audience."
+    },
+    {
+        "word":  "Incentive",
+        "pos":  "Noun",
+        "pron":  "in-SEN-tiv",
+        "def":  "A thing that motivates or encourages one to do something.",
+        "ex":  "The bonus check was a great incentive to hit our sales goals this month."
+    },
+    {
+        "word":  "Prevalent",
+        "pos":  "Adjective",
+        "pron":  "PREV-uh-lunt",
+        "def":  "Widespread in a particular area or at a particular time.",
+        "ex":  "Fake news is becoming distressingly prevalent on social media."
+    },
+    {
+        "word":  "Deter",
+        "pos":  "Verb",
+        "pron":  "dih-TUR",
+        "def":  "Discourage someone from doing something by instilling doubt or fear of the consequences.",
+        "ex":  "The severe fines are meant to deter drivers from speeding."
+    },
+    {
+        "word":  "Advocate",
+        "pos":  "Verb",
+        "pron":  "AD-vuh-kayt",
+        "def":  "Publicly recommend or support.",
+        "ex":  "She is a strong advocate for animal rights and environmental protection."
+    },
+    {
+        "word":  "Reiterate",
+        "pos":  "Verb",
+        "pron":  "ree-IT-uh-rayt",
+        "def":  "Say something again or a number of times, typically for emphasis or clarity.",
+        "ex":  "Let me reiterate: the deadline is absolutely non-negotiable."
+    },
+    {
+        "word":  "Frivolous",
+        "pos":  "Adjective",
+        "pron":  "FRIV-uh-lus",
+        "def":  "Not having any serious purpose or value.",
+        "ex":  "He wasted his entire paycheck on frivolous purchases."
+    },
+    {
+        "word":  "Concede",
+        "pos":  "Verb",
+        "pron":  "kun-SEED",
+        "def":  "Admit that something is true or valid after first denying or resisting it. Surrender or yield.",
+        "ex":  "After looking at the data, I have to concede that you were right."
+    },
+    {
+        "word":  "Pervasive",
+        "pos":  "Adjective",
+        "pron":  "per-VAY-siv",
+        "def":  "Spreading widely throughout an area or a group of people.",
+        "ex":  "The belief that money buys happiness is a pervasive misconception."
+    },
+    {
+        "word":  "Skeptical",
+        "pos":  "Adjective",
+        "pron":  "SKEP-tih-kul",
+        "def":  "Not easily convinced; having doubts or reservations.",
+        "ex":  "I\u0027m highly skeptical of any product that claims to be a \u0027miracle cure.\u0027"
+    },
+    {
+        "word":  "Ambivalent",
+        "pos":  "Adjective",
+        "pron":  "am-BIV-uh-lunt",
+        "def":  "Having mixed feelings or contradictory ideas about something or someone.",
+        "ex":  "She felt deeply ambivalent about moving to a new city."
+    },
+    {
+        "word":  "Pivotal",
+        "pos":  "Adjective",
+        "pron":  "PIV-uh-tul",
+        "def":  "Of crucial importance in relation to the development or success of something else.",
+        "ex":  "The battle was a pivotal moment in the nation\u0027s history."
+    },
+    {
+        "word":  "Superficial",
+        "pos":  "Adjective",
+        "pron":  "soo-per-FISH-ul",
+        "def":  "Existing or occurring at or on the surface. Not thorough, deep, or complete.",
+        "ex":  "Their relationship was entirely superficial; they never talked about anything serious."
+    },
+    {
+        "word":  "Reconcile",
+        "pos":  "Verb",
+        "pron":  "REK-un-syl",
+        "def":  "Restore friendly relations between. Cause to coexist in harmony.",
+        "ex":  "It was difficult to reconcile his generous public persona with his private greed."
+    },
+    {
+        "word":  "Prerequisite",
+        "pos":  "Noun",
+        "pron":  "pree-REK-wih-zit",
+        "def":  "A thing that is required as a prior condition for something else to happen or exist.",
+        "ex":  "Passing Biology 101 is a prerequisite for enrolling in Anatomy."
+    },
+    {
+        "word":  "Arbitrary",
+        "pos":  "Adjective",
+        "pron":  "AR-bih-trair-ee",
+        "def":  "Based on random choice or personal whim, rather than any reason or system.",
+        "ex":  "The school\u0027s dress code policy seemed entirely arbitrary and unfair."
+    },
+    {
+        "word":  "Comprehend",
+        "pos":  "Verb",
+        "pron":  "kom-pri-HEND",
+        "def":  "Grasp mentally; understand.",
+        "ex":  "I simply cannot comprehend why someone would leave a dog in a hot car."
+    },
+    {
+        "word":  "Discrepancy",
+        "pos":  "Noun",
+        "pron":  "dih-SKREP-un-see",
+        "def":  "A lack of compatibility or similarity between two or more facts.",
+        "ex":  "There is a major discrepancy between what he said yesterday and what he is saying today."
+    },
+    {
+        "word":  "Evoke",
+        "pos":  "Verb",
+        "pron":  "ih-VOHK",
+        "def":  "Bring or recall to the conscious mind.",
+        "ex":  "The smell of baking bread always evokes memories of my grandmother\u0027s kitchen."
+    },
+    {
+        "word":  "Lethargic",
+        "pos":  "Adjective",
+        "pron":  "luh-THAR-jik",
+        "def":  "Affected by lethargy; sluggish and apathetic.",
+        "ex":  "Eating a giant bowl of pasta for lunch always makes me feel lethargic all afternoon."
+    },
+    {
+        "word":  "Obsolete",
+        "pos":  "Adjective",
+        "pron":  "ob-suh-LEET",
+        "def":  "No longer produced or used; out of date.",
+        "ex":  "The invention of the smartphone rendered my old digital camera totally obsolete."
+    },
+    {
+        "word":  "Proponent",
+        "pos":  "Noun",
+        "pron":  "pruh-POH-nunt",
+        "def":  "A person who advocates a theory, proposal, or project.",
+        "ex":  "He is a strong proponent of renewable energy subsidies."
+    },
+    {
+        "word":  "Retaliate",
+        "pos":  "Verb",
+        "pron":  "rih-TAL-ee-ayt",
+        "def":  "Make an attack or assault in return for a similar attack.",
+        "ex":  "If you attack them, they will certainly retaliate with full force."
+    },
+    {
+        "word":  "Viable",
+        "pos":  "Adjective",
+        "pron":  "VY-uh-bul",
+        "def":  "Capable of working successfully; feasible.",
+        "ex":  "Solar power is now a highly viable alternative to fossil fuels."
+    },
+    {
+        "word":  "Affinity",
+        "pos":  "Noun",
+        "pron":  "uh-FIN-ih-tee",
+        "def":  "A spontaneous or natural liking or sympathy for someone or something.",
+        "ex":  "She\u0027s always had a natural affinity for working with animals."
+    },
+    {
+        "word":  "Dilute",
+        "pos":  "Verb",
+        "pron":  "dy-LOOT",
+        "def":  "Make a liquid thinner or weaker by adding water or another solvent. Make simpler or less potent.",
+        "ex":  "I had to dilute the concentrated cleaner with water before using it."
+    },
+    {
+        "word":  "Convey",
+        "pos":  "Verb",
+        "pron":  "kun-VAY",
+        "def":  "Make (an idea, impression, or feeling) known or understandable to someone.",
+        "ex":  "Please convey my deepest apologies to your parents for missing the dinner."
+    },
+    {
+        "word":  "Aesthetic",
+        "pos":  "Adjective",
+        "pron":  "es-THET-ik",
+        "def":  "Concerned with beauty or the appreciation of beauty.",
+        "ex":  "The new cafe has a very modern, minimalist aesthetic."
+    },
+    {
+        "word":  "Abundant",
+        "pron":  "uh-BUN-dunt",
+        "pos":  "Adjective",
+        "def":  "Existing or available in large quantities; plentiful.",
+        "ex":  "The region offers an abundant supply of fresh water."
+    },
+    {
+        "word":  "Acumen",
+        "pron":  "AK-yuh-mun",
+        "pos":  "Noun",
+        "def":  "The ability to make good judgments and quick decisions, typically in a particular domain.",
+        "ex":  "Her business acumen allowed her to grow the company rapidly."
+    },
+    {
+        "word":  "Adequate",
+        "pron":  "AD-ih-kwut",
+        "pos":  "Adjective",
+        "def":  "Satisfactory or acceptable in quality or quantity.",
+        "ex":  "The town has adequate facilities for handling the storm."
+    },
+    {
+        "word":  "Adhere",
+        "pron":  "ad-HEER",
+        "pos":  "Verb",
+        "def":  "Stick fast to (a surface or substance). Believe in and follow the practices of.",
+        "ex":  "Please adhere to the rules while visiting the museum."
+    },
+    {
+        "word":  "Affirm",
+        "pron":  "uh-FURM",
+        "pos":  "Verb",
+        "def":  "State as a fact strongly and publicly.",
+        "ex":  "He affirmed his commitment to the project."
+    },
+    {
+        "word":  "Alleviate",
+        "pron":  "uh-LEE-vee-ayt",
+        "pos":  "Verb",
+        "def":  "Make (suffering, deficiency, or a problem) less severe.",
+        "ex":  "The medicine did not immediately alleviate her pain."
+    },
+    {
+        "word":  "Allocated",
+        "pron":  "AL-oh-kay-tid",
+        "pos":  "Adjective",
+        "def":  "Distributed (resources or duties) for a particular purpose.",
+        "ex":  "The funds were allocated strictly for educational purposes."
+    },
+    {
+        "word":  "Ample",
+        "pron":  "AM-pul",
+        "pos":  "Adjective",
+        "def":  "Enough or more than enough; plentiful.",
+        "ex":  "There is ample evidence to support his theory."
+    },
+    {
+        "word":  "Anomaly",
+        "pron":  "uh-NOM-uh-lee",
+        "pos":  "Noun",
+        "def":  "Something that deviates from what is standard, normal, or expected.",
+        "ex":  "The sudden snow in July was a weather anomaly."
+    },
+    {
+        "word":  "Anticipate",
+        "pron":  "an-TIS-uh-payt",
+        "pos":  "Verb",
+        "def":  "Regard as probable; expect or predict.",
+        "ex":  "I didn\u0027t anticipate such a large turn-out at the meeting."
+    },
+    {
+        "word":  "Apathy",
+        "pron":  "AP-uh-thee",
+        "pos":  "Noun",
+        "def":  "Lack of interest, enthusiasm, or concern.",
+        "ex":  "The voter apathy during the local election was disappointing."
+    },
+    {
+        "word":  "Apparent",
+        "pron":  "uh-PAR-unt",
+        "pos":  "Adjective",
+        "def":  "Clearly visible or understood; obvious.",
+        "ex":  "It became apparent that the plan wasn\u0027t going to work."
+    },
+    {
+        "word":  "Apprehensive",
+        "pron":  "ap-rih-HEN-siv",
+        "pos":  "Adjective",
+        "def":  "Anxious or fearful that something bad or unpleasant will happen.",
+        "ex":  "He felt apprehensive about the upcoming interview."
+    },
+    {
+        "word":  "Arbitrate",
+        "pron":  "AR-bih-trayt",
+        "pos":  "Verb",
+        "def":  "Reach an authoritative judgment or settlement.",
+        "ex":  "An independent committee will arbitrate the dispute."
+    },
+    {
+        "word":  "Assertive",
+        "pron":  "uh-SUR-tiv",
+        "pos":  "Adjective",
+        "def":  "Having or showing a confident and forceful personality.",
+        "ex":  "You need to be more assertive if you want that promotion."
+    },
+    {
+        "word":  "Assess",
+        "pron":  "uh-SES",
+        "pos":  "Verb",
+        "def":  "Evaluate or estimate the nature, ability, or quality of.",
+        "ex":  "The insurance agent arrived to assess the flood damage."
+    },
+    {
+        "word":  "Asset",
+        "pron":  "AS-et",
+        "pos":  "Noun",
+        "def":  "A useful or valuable thing, person, or quality.",
+        "ex":  "Quick thinking is a tremendous asset in this line of work."
+    },
+    {
+        "word":  "Attribute",
+        "pron":  "uh-TRIB-yoot",
+        "pos":  "Verb",
+        "def":  "Regard something as being caused by someone or something.",
+        "ex":  "He attributed his success to sheer hard work."
+    },
+    {
+        "word":  "Authentic",
+        "pron":  "aw-THEN-tik",
+        "pos":  "Adjective",
+        "def":  "Of undisputed origin; genuine.",
+        "ex":  "The restaurant serves authentic Italian cuisine."
+    },
+    {
+        "word":  "Banal",
+        "pron":  "buh-NAL",
+        "pos":  "Adjective",
+        "def":  "So lacking in originality as to be obvious and boring.",
+        "ex":  "The speaker\u0027s banal remarks put the audience to sleep."
+    },
+    {
+        "word":  "Beneficial",
+        "pron":  "ben-uh-FISH-ul",
+        "pos":  "Adjective",
+        "def":  "Favorable or advantageous; resulting in good.",
+        "ex":  "Eating a balanced diet is highly beneficial for your health."
+    },
+    {
+        "word":  "Benign",
+        "pron":  "bih-NYN",
+        "pos":  "Adjective",
+        "def":  "Gentle; kindly. Not harmful in effect.",
+        "ex":  "Thankfully, the doctor confirmed the tumor was benign."
+    },
+    {
+        "word":  "Brevity",
+        "pron":  "BREV-ih-tee",
+        "pos":  "Noun",
+        "def":  "Concise and exact use of words in writing or speech.",
+        "ex":  "The brevity of his email suggested he was in a rush."
+    },
+    {
+        "word":  "Capitalize",
+        "pron":  "KAP-ih-tuh-lyz",
+        "pos":  "Verb",
+        "def":  "Take the chance to gain advantage from.",
+        "ex":  "The company failed to capitalize on the new market trends."
+    },
+    {
+        "word":  "Caveat",
+        "pron":  "KAV-ee-at",
+        "pos":  "Noun",
+        "def":  "A warning or proviso of specific stipulations, conditions, or limitations.",
+        "ex":  "He agreed to the deal, but added one major caveat."
+    },
+    {
+        "word":  "Chronological",
+        "pron":  "kron-uh-LOJ-ih-kul",
+        "pos":  "Adjective",
+        "def":  "Start with the earliest and follow the order in which they occurred.",
+        "ex":  "The biography details her life in strict chronological order."
+    },
+    {
+        "word":  "Coherent",
+        "pron":  "koh-HEER-unt",
+        "pos":  "Adjective",
+        "def":  "Logical and consistent.",
+        "ex":  "They failed to develop a coherent strategy for the campaign."
+    },
+    {
+        "word":  "Coincide",
+        "pron":  "koh-in-SYD",
+        "pos":  "Verb",
+        "def":  "Occur at or during the same time.",
+        "ex":  "His arrival coincided with the start of the heavy rain."
+    },
+    {
+        "word":  "Collaborate",
+        "pron":  "kuh-LAB-uh-rayt",
+        "pos":  "Verb",
+        "def":  "Work jointly on an activity, especially to produce or create something.",
+        "ex":  "The two completely different artists decided to collaborate."
+    },
+    {
+        "word":  "Commence",
+        "pron":  "kuh-MENS",
+        "pos":  "Verb",
+        "def":  "Begin; start.",
+        "ex":  "The graduation ceremony will commence promptly at noon."
+    },
+    {
+        "word":  "Commendable",
+        "pron":  "kuh-MEN-duh-bul",
+        "pos":  "Adjective",
+        "def":  "Deserving praise.",
+        "ex":  "Her effort to rescue the stray animals was truly commendable."
+    },
+    {
+        "word":  "Compact",
+        "pron":  "kum-PAKT",
+        "pos":  "Adjective",
+        "def":  "Closely and neatly packed together; dense.",
+        "ex":  "She drives a very compact car that\u0027s easy to park."
+    },
+    {
+        "word":  "Compassion",
+        "pron":  "kum-PASH-un",
+        "pos":  "Noun",
+        "def":  "Sympathetic pity and concern for the sufferings or misfortunes of others.",
+        "ex":  "The nurse showed great compassion toward the elderly patient."
+    },
+    {
+        "word":  "Compatible",
+        "pron":  "kum-PAT-uh-bul",
+        "pos":  "Adjective",
+        "def":  "Able to exist or occur together without conflict.",
+        "ex":  "The new software isn\u0027t compatible with older operating systems."
+    },
+    {
+        "word":  "Compliment",
+        "pron":  "KOM-plih-munt",
+        "pos":  "Noun",
+        "def":  "A polite expression of praise or admiration.",
+        "ex":  "He paid her a sincere compliment on her impressive presentation."
+    },
+    {
+        "word":  "Comprehensive",
+        "pron":  "kom-prih-HEN-siv",
+        "pos":  "Adjective",
+        "def":  "Complete; including all or nearly all elements or aspects of something.",
+        "ex":  "The school provides a comprehensive review of world history."
+    },
+    {
+        "word":  "Compromise",
+        "pron":  "KOM-pruh-myz",
+        "pos":  "Noun",
+        "def":  "An agreement or a settlement of a dispute that is reached by each side making concessions.",
+        "ex":  "They finally reached a compromise after hours of negotiation."
+    },
+    {
+        "word":  "Concise",
+        "pron":  "kun-SYS",
+        "pos":  "Adjective",
+        "def":  "Giving a lot of information clearly and in a few words; brief but comprehensive.",
+        "ex":  "Please keep your summary concise; under one page if possible."
+    },
+    {
+        "word":  "Conclusive",
+        "pron":  "kun-KLOO-siv",
+        "pos":  "Adjective",
+        "def":  "Of evidence or argument serving to prove a case; decisive or convincing.",
+        "ex":  "There is still no conclusive proof that the theory is correct."
+    },
+    {
+        "word":  "Concur",
+        "pron":  "kun-KUR",
+        "pos":  "Verb",
+        "def":  "Be of the same opinion; agree.",
+        "ex":  "I strongly concur with the recommendations laid out in the report."
+    },
+    {
+        "word":  "Condone",
+        "pron":  "kun-DOHN",
+        "pos":  "Verb",
+        "def":  "Accept and allow (behavior that is considered morally wrong or offensive) to continue.",
+        "ex":  "The school cannot condone bullying under any circumstances."
+    },
+    {
+        "word":  "Conducive",
+        "pron":  "kun-DOO-siv",
+        "pos":  "Adjective",
+        "def":  "Making a certain situation or outcome likely or possible.",
+        "ex":  "The noisy environment was not conducive to studying."
+    },
+    {
+        "word":  "Conform",
+        "pron":  "kun-FORM",
+        "pos":  "Verb",
+        "def":  "Comply with rules, standards, or laws.",
+        "ex":  "All employees must conform to the new security policies."
+    },
+    {
+        "word":  "Congruent",
+        "pron":  "KONG-groo-unt",
+        "pos":  "Adjective",
+        "def":  "In agreement or harmony.",
+        "ex":  "His actions are rarely congruent with his stated values."
+    },
+    {
+        "word":  "Consequence",
+        "pron":  "KON-sih-kwens",
+        "pos":  "Noun",
+        "def":  "A result or effect of an action or condition.",
+        "ex":  "Deforestation has devastating environmental consequences."
+    },
+    {
+        "word":  "Conservative",
+        "pron":  "kun-SUR-vuh-tiv",
+        "pos":  "Adjective",
+        "def":  "Averse to change or innovation and holding traditional values.",
+        "ex":  "Her financial estimates were deliberately conservative to avoid risk."
+    },
+    {
+        "word":  "Consistent",
+        "pron":  "kun-SIS-tunt",
+        "pos":  "Adjective",
+        "def":  "Acting or done in the same way over time, especially so as to be fair or accurate.",
+        "ex":  "To see results at the gym, you have to be highly consistent."
+    },
+    {
+        "word":  "Consolidate",
+        "pron":  "kun-SOL-ih-dayt",
+        "pos":  "Verb",
+        "def":  "Combine into a single, more effective whole.",
+        "ex":  "We need to consolidate our debts into one manageable payment."
+    },
+    {
+        "word":  "Constitute",
+        "pron":  "KON-stih-toot",
+        "pos":  "Verb",
+        "def":  "Be a part of a whole. Combine to form a whole.",
+        "ex":  "Nine players constitute a standard baseball team."
+    },
+    {
+        "word":  "Constraint",
+        "pron":  "kun-STRAYNT",
+        "pos":  "Noun",
+        "def":  "A limitation or restriction.",
+        "ex":  "Time constraints forced us to completely cut the final objective."
+    },
+    {
+        "word":  "Constructive",
+        "pron":  "kun-STRUK-tiv",
+        "pos":  "Adjective",
+        "def":  "Serving a useful purpose; tending to build up.",
+        "ex":  "She responded graciously to the constructive criticism."
+    },
+    {
+        "word":  "Contingent",
+        "pron":  "kun-TIN-junt",
+        "pos":  "Adjective",
+        "def":  "Subject to chance. Occurring or existing only if certain other circumstances are the case.",
+        "ex":  "The purchase of the new house is contingent on selling our old one."
+    },
+    {
+        "word":  "Contradict",
+        "pron":  "kon-truh-DIKT",
+        "pos":  "Verb",
+        "def":  "Deny the truth of (a statement), especially by asserting the opposite.",
+        "ex":  "The witness\u0027s testimony completely contradicted the security footage."
+    },
+    {
+        "word":  "Contrast",
+        "pron":  "KON-trast",
+        "pos":  "Noun",
+        "def":  "The state of being strikingly different from something else.",
+        "ex":  "The stark contrast between extreme wealth and poverty in the city."
+    },
+    {
+        "word":  "Contribute",
+        "pron":  "kun-TRIB-yoot",
+        "pos":  "Verb",
+        "def":  "Give in order to help achieve or provide something.",
+        "ex":  "Everyone needs to contribute to the group project."
+    },
+    {
+        "word":  "Converse",
+        "pron":  "kun-VURS",
+        "pos":  "Verb",
+        "def":  "Engage in conversation.",
+        "ex":  "They conversed quietly in the back of the library."
+    },
+    {
+        "word":  "Coordinate",
+        "pron":  "koh-OR-dn-ayt",
+        "pos":  "Verb",
+        "def":  "Bring elements of a complex activity into a relationship that will ensure efficiency.",
+        "ex":  "She will coordinate the massive relief effort."
+    },
+    {
+        "word":  "Correlate",
+        "pron":  "KOR-uh-layt",
+        "pos":  "Verb",
+        "def":  "Have a mutual relationship or connection, in which one thing affects or depends on another.",
+        "ex":  "High stress levels often correlate with poor sleep quality."
+    },
+    {
+        "word":  "Credible",
+        "pron":  "KRED-uh-bul",
+        "pos":  "Adjective",
+        "def":  "Able to be believed; convincing.",
+        "ex":  "The defense attorney argued that the witness was not credible."
+    },
+    {
+        "word":  "Criterion",
+        "pron":  "kry-TEER-ee-un",
+        "pos":  "Noun",
+        "def":  "A principle or standard by which something may be judged or decided.",
+        "ex":  "The main criterion for admission is academic excellence."
+    },
+    {
+        "word":  "Crucial",
+        "pron":  "KROO-shul",
+        "pos":  "Adjective",
+        "def":  "Decisive or critical, especially in the success or failure of something.",
+        "ex":  "Proper hydration is crucial for athletic performance."
+    },
+    {
+        "word":  "Cumulative",
+        "pron":  "KYOO-myuh-luh-tiv",
+        "pos":  "Adjective",
+        "def":  "Increasing or increased in quantity, degree, or force by successive additions.",
+        "ex":  "The cumulative effect of losing sleep over a week is severe."
+    },
+    {
+        "word":  "Dearth",
+        "pron":  "DURTH",
+        "pos":  "Noun",
+        "def":  "A scarcity or lack of something.",
+        "ex":  "There is a severe dearth of affordable housing in the city."
+    },
+    {
+        "word":  "Debate",
+        "pron":  "dih-BAYT",
+        "pos":  "Noun",
+        "def":  "A formal discussion on a particular topic in a public meeting or legislative assembly.",
+        "ex":  "The candidates will hold a televised debate tomorrow night."
+    },
+    {
+        "word":  "Decipher",
+        "pron":  "dih-SY-fur",
+        "pos":  "Verb",
+        "def":  "Succeed in understanding, interpreting, or identifying something.",
+        "ex":  "I simply couldn\u0027t decipher his extremely messy handwriting."
+    },
+    {
+        "word":  "Deduce",
+        "pron":  "dih-DOOS",
+        "pos":  "Verb",
+        "def":  "Arrive at a fact or a conclusion by reasoning; draw as a logical conclusion.",
+        "ex":  "From the evidence, the detective deduced that the suspect was lying."
+    },
+    {
+        "word":  "Deficient",
+        "pron":  "dih-FISH-unt",
+        "pos":  "Adjective",
+        "def":  "Not having enough of a specified quality or ingredient.",
+        "ex":  "The soil in this area is highly deficient in nitrogen."
+    },
+    {
+        "word":  "Definitive",
+        "pron":  "dih-FIN-ih-tiv",
+        "pos":  "Adjective",
+        "def":  "Done or reached decisively and with authority.",
+        "ex":  "The judge issued a definitive ruling on the complex case."
+    },
+    {
+        "word":  "Delegate",
+        "pron":  "DEL-ih-gayt",
+        "pos":  "Verb",
+        "def":  "Entrust a task or responsibility to another person, typically one who is less senior than oneself.",
+        "ex":  "A good manager knows how to properly delegate tasks."
+    },
+    {
+        "word":  "Deliberate",
+        "pron":  "dih-LIB-er-it",
+        "pos":  "Adjective",
+        "def":  "Done consciously and intentionally.",
+        "ex":  "Tripping the opposing player was a deliberate foul."
+    },
+    {
+        "word":  "Demographics",
+        "pron":  "dem-uh-GRAF-iks",
+        "pos":  "Noun",
+        "def":  "Statistical data relating to the population and particular groups within it.",
+        "ex":  "The marketing team closely analyzed the demographics of the area."
+    },
+    {
+        "word":  "Demonstrate",
+        "pron":  "DEM-un-strayt",
+        "pos":  "Verb",
+        "def":  "Clearly show the existence or truth of something by giving proof or evidence.",
+        "ex":  "The chef will demonstrate how to properly dice an onion."
+    },
+    {
+        "word":  "Depict",
+        "pron":  "dih-PIKT",
+        "pos":  "Verb",
+        "def":  "Show or represent by a drawing, painting, or other art form. Portray in words.",
+        "ex":  "The mural beautifully depicts the rich history of the town."
+    },
+    {
+        "word":  "Derive",
+        "pron":  "dih-RYV",
+        "pos":  "Verb",
+        "def":  "Obtain something from a specified source.",
+        "ex":  "A lot of modern medicines derive from plants found in the rainforest."
+    },
+    {
+        "word":  "Descriptive",
+        "pron":  "dih-SKRIP-tiv",
+        "pos":  "Adjective",
+        "def":  "Serving or seeking to describe.",
+        "ex":  "The author uses highly descriptive language to set the scene."
+    },
+    {
+        "word":  "Designate",
+        "pron":  "DEZ-ig-nayt",
+        "pos":  "Verb",
+        "def":  "Appoint someone to a specified position.",
+        "ex":  "They will designate a new team leader by the end of the week."
+    },
+    {
+        "word":  "Determine",
+        "pron":  "dih-TUR-min",
+        "pos":  "Verb",
+        "def":  "Cause something to occur in a particular way; be the decisive factor in.",
+        "ex":  "Access to capital often determines whether a startup survives."
+    },
+    {
+        "word":  "Detrimental",
+        "pron":  "deh-truh-MEN-tul",
+        "pos":  "Adjective",
+        "def":  "Tending to cause harm.",
+        "ex":  "Smoking is highly detrimental to long-term lung health."
+    },
+    {
+        "word":  "Deviate",
+        "pron":  "DEE-vee-ayt",
+        "pos":  "Verb",
+        "def":  "Depart from an established course.",
+        "ex":  "The pilot had to deviate from the planned flight path due to storms."
+    },
+    {
+        "word":  "Differentiate",
+        "pron":  "dif-uh-REN-shee-ayt",
+        "pos":  "Verb",
+        "def":  "Recognize or ascertain what makes someone or something different.",
+        "ex":  "It\u0027s difficult to differentiate between the identical twins."
+    },
+    {
+        "word":  "Diminish",
+        "pron":  "dih-MIN-ish",
+        "pos":  "Verb",
+        "def":  "Make or become less.",
+        "ex":  "Her confidence severely diminished after failing the major exam."
+    },
+    {
+        "word":  "Diplomatic",
+        "pron":  "dip-luh-MAT-ik",
+        "pos":  "Adjective",
+        "def":  "Of or concerning the profession, activity, or skill of managing international relations.",
+        "ex":  "He handled the incredibly tense situation with diplomatic skill."
+    },
+    {
+        "word":  "Direct",
+        "pron":  "dih-REKT",
+        "pos":  "Adjective",
+        "def":  "Extending or moving from one place to another without changing direction or stopping.",
+        "ex":  "Is there a direct flight from New York to Tokyo?"
+    },
+    {
+        "word":  "Disclose",
+        "pron":  "dis-KLOHZ",
+        "pos":  "Verb",
+        "def":  "Make secret or new information known.",
+        "ex":  "The company refused to disclose the exact terms of the settlement."
+    },
+    {
+        "word":  "Discriminate",
+        "pron":  "dih-SKRIM-uh-nayt",
+        "pos":  "Verb",
+        "def":  "Recognize a distinction; differentiate.",
+        "ex":  "Babies can quickly discriminate between their mother\u0027s voice and others."
+    },
+    {
+        "word":  "Dismiss",
+        "pron":  "dis-MIS",
+        "pos":  "Verb",
+        "def":  "Order or allow to leave; send away.",
+        "ex":  "The teacher decided to dismiss the class five minutes early."
+    },
+    {
+        "word":  "Dispatch",
+        "pron":  "dis-PACH",
+        "pos":  "Verb",
+        "def":  "Send off to a destination or for a purpose.",
+        "ex":  "The police promptly dispatched three cars to the scene of the accident."
+    },
+    {
+        "word":  "Disperse",
+        "pron":  "dih-SPURS",
+        "pos":  "Verb",
+        "def":  "Distribute or spread over a wide area.",
+        "ex":  "The crowd began to disperse once the concert ended."
+    },
+    {
+        "word":  "Displace",
+        "pron":  "dis-PLAYS",
+        "pos":  "Verb",
+        "def":  "Take over the place, position, or role of something.",
+        "ex":  "The massive new factory will displace hundreds of local farming jobs."
+    },
+    {
+        "word":  "Distinct",
+        "pron":  "dih-STINKT",
+        "pos":  "Adjective",
+        "def":  "Recognizably different in nature from something else of a similar type.",
+        "ex":  "There is a distinct difference between being tired and being exhausted."
+    },
+    {
+        "word":  "Distort",
+        "pron":  "dih-STORT",
+        "pos":  "Verb",
+        "def":  "Pull or twist out of shape.",
+        "ex":  "The funhouse mirror will hilariously distort your reflection."
+    },
+    {
+        "word":  "Diverse",
+        "pron":  "dy-VURS",
+        "pos":  "Adjective",
+        "def":  "Showing a great deal of variety; very different.",
+        "ex":  "The city boasts an incredibly rich and diverse cultural landscape."
+    },
+    {
+        "word":  "Document",
+        "pron":  "DOK-yuh-munt",
+        "pos":  "Noun",
+        "def":  "A piece of written, printed, or electronic matter that provides information or evidence.",
+        "ex":  "Please sign this official legal document to finalize the sale."
+    },
+    {
+        "word":  "Dogmatic",
+        "pron":  "dog-MAT-ik",
+        "pos":  "Adjective",
+        "def":  "Inclined to lay down principles as incontrovertibly true.",
+        "ex":  "His dogmatic approach to the debate shut down any real discussion."
+    },
+    {
+        "word":  "Dominant",
+        "pron":  "DOM-uh-nunt",
+        "pos":  "Adjective",
+        "def":  "Most important, powerful, or influential.",
+        "ex":  "The massive lion was clearly the dominant male of the pride."
+    },
+    {
+        "word":  "Draft",
+        "pron":  "DRAFT",
+        "pos":  "Noun",
+        "def":  "A preliminary version of a piece of writing.",
+        "ex":  "This is just a rough early draft of my upcoming novel."
+    },
+    {
+        "word":  "Duration",
+        "pron":  "doo-RAY-shun",
+        "pos":  "Noun",
+        "def":  "The time during which something continues.",
+        "ex":  "You must remain seated for the entire duration of the flight."
+    },
+    {
+        "word":  "Dynamic",
+        "pron":  "dy-NAM-ik",
+        "pos":  "Adjective",
+        "def":  "Characterized by constant change, activity, or progress.",
+        "ex":  "The software industry is incredibly fast-paced and dynamic."
+    },
+    {
+        "word":  "Eccentric",
+        "pron":  "ik-SEN-trik",
+        "pos":  "Adjective",
+        "def":  "Unconventional and slightly strange.",
+        "ex":  "My eccentric uncle collects hundreds of vintage garden gnomes."
+    },
+    {
+        "word":  "Economical",
+        "pron":  "ek-uh-NOM-ih-kul",
+        "pos":  "Adjective",
+        "def":  "Giving good value or service in relation to the amount of money, time, or effort spent.",
+        "ex":  "Buying items in bulk at Costco is often highly economical."
+    },
+    {
+        "word":  "Edify",
+        "pron":  "ED-uh-fy",
+        "pos":  "Verb",
+        "def":  "Instruct or improve someone morally or intellectually.",
+        "ex":  "The documentary was meant to edify its young audience."
+    },
+    {
+        "word":  "Efficient",
+        "pron":  "ih-FISH-unt",
+        "pos":  "Adjective",
+        "def":  "Achieving maximum productivity with minimum wasted effort or expense.",
+        "ex":  "The new hybrid engines are vastly more fuel efficient."
+    },
+    {
+        "word":  "Elaborate",
+        "pron":  "ih-LAB-uh-rut",
+        "pos":  "Adjective",
+        "def":  "Involving many carefully arranged parts or details; detailed and complicated in design and planning.",
+        "ex":  "The elaborate heist took months to plan perfectly."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    },
+    {
+        "word":  "Ambience",
+        "pron":  "AM-bee-uns",
+        "pos":  "Noun",
+        "def":  "The character and atmosphere of a place.",
+        "ex":  "The fancy expensive restaurant had a deeply romantic ambience."
+    },
+    {
+        "word":  "Ameliorate",
+        "pron":  "uh-MEEL-yuh-rayt",
+        "pos":  "Verb",
+        "def":  "Make something bad or unsatisfactory better.",
+        "ex":  "The medicine did absolutely nothing to ameliorate his terrible condition."
+    },
+    {
+        "word":  "Acquisition",
+        "pron":  "ak-wuh-ZISH-un",
+        "pos":  "Noun",
+        "def":  "An asset or object bought or obtained.",
+        "ex":  "The massive company\u0027s newest expensive acquisition was a small promising startup."
+    },
+    {
+        "word":  "Adept",
+        "pron":  "uh-DEPT",
+        "pos":  "Adjective",
+        "def":  "Very skilled or proficient at something.",
+        "ex":  "She is highly adept at quickly resolving complex confounding massive technical issues."
+    },
+    {
+        "word":  "Admonish",
+        "pron":  "ad-MON-ish",
+        "pos":  "Verb",
+        "def":  "Warn or reprimand someone firmly.",
+        "ex":  "The angry strict teacher had to sternly admonish the loudly talking students."
+    },
+    {
+        "word":  "Affluent",
+        "pron":  "AF-loo-unt",
+        "pos":  "Adjective",
+        "def":  "Having a great deal of money",
+        "ex":  " wealthy."
+    },
+    {
+        "word":  "Aggregate",
+        "pron":  "AG-rih-gut",
+        "pos":  "Noun",
+        "def":  "A whole formed by combining several separate elements.",
+        "ex":  "The final score was the total aggregate of all the games."
+    },
+    {
+        "word":  "Alacrity",
+        "pron":  "uh-LAK-rih-tee",
+        "pos":  "Noun",
+        "def":  "Brisk and cheerful readiness.",
+        "ex":  "She accepted the amazing invitation with massive alacrity."
+    }
 ];
 
 // ===== SAYINGS DATA =====

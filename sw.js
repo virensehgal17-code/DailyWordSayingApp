@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wordofday-v1';
+const CACHE_NAME = 'wordofday-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -50,8 +50,8 @@ self.addEventListener('message', event => {
     self._notifTimer = null;
   }
   if (event.data && event.data.type === 'TEST_NOTIFICATION') {
-    self.registration.showNotification('Word of the Day 📖', {
-      body: 'Your new word is ready! Tap to expand your vocabulary.',
+    self.registration.showNotification('OPEN ME', {
+      body: 'Get in here...',
       icon: './icons/icon-192.png',
       badge: './icons/icon-192.png',
       tag: 'wotd-test',

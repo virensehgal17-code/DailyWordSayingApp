@@ -5,28 +5,33 @@ let currentTheme = 'theme-midnight';
 // Predefined catalog of items with detailed types and icons
 const ITEM_CATALOG = [
     { name: 'Beer', icon: '🍺', type: 'Drink', isDrink: true },
-    { name: 'IPA', icon: '🍺', type: 'Drink', isDrink: true },
-    { name: 'Stout', icon: '🍺', type: 'Drink', isDrink: true },
-    { name: 'Vodka Shot', icon: '🥃', type: 'Drink', isDrink: true },
-    { name: 'Tequila Shot', icon: '🥃', type: 'Drink', isDrink: true },
+    { name: 'IPA', icon: '🍻', type: 'Drink', isDrink: true },
+    { name: 'Stout', icon: '🏺', type: 'Drink', isDrink: true },
+    { name: 'Vodka Shot', icon: '🧊', type: 'Drink', isDrink: true },
+    { name: 'Tequila Shot', icon: '🌵', type: 'Drink', isDrink: true },
     { name: 'Whiskey', icon: '🥃', type: 'Drink', isDrink: true },
     { name: 'Seltzer', icon: '🥤', type: 'Drink', isDrink: true },
-    { name: 'Wine', icon: '🍷', type: 'Drink', isDrink: true },
+    { name: 'White Claw', icon: '🥫', type: 'Drink', isDrink: true },
+    { name: 'Wine (Red)', icon: '🍷', type: 'Drink', isDrink: true },
+    { name: 'Wine (White)', icon: '🥂', type: 'Drink', isDrink: true },
     { name: 'Cocktail', icon: '🍸', type: 'Drink', isDrink: true },
     { name: 'Margarita', icon: '🍹', type: 'Drink', isDrink: true },
-    { name: 'Champagne', icon: '🥂', type: 'Drink', isDrink: true },
+    { name: 'Sake', icon: '🍶', type: 'Drink', isDrink: true },
     { name: 'Water', icon: '💧', type: 'Non-Drink', isDrink: false },
     { name: 'Soda', icon: '🥤', type: 'Non-Drink', isDrink: false },
     { name: 'Coffee', icon: '☕', type: 'Non-Drink', isDrink: false },
+    { name: 'Energy Drink', icon: '⚡', type: 'Non-Drink', isDrink: false },
     { name: 'Cigarette', icon: '🚬', type: 'Non-Drink', isDrink: false },
     { name: 'Vape Hit', icon: '💨', type: 'Non-Drink', isDrink: false },
+    { name: 'Joint', icon: '🌿', type: 'Non-Drink', isDrink: false },
     { name: 'Slice of Pizza', icon: '🍕', type: 'Non-Drink', isDrink: false },
-    { name: 'Tacos', icon: '🌮', type: 'Non-Drink', isDrink: false }
+    { name: 'Tacos', icon: '🌮', type: 'Non-Drink', isDrink: false },
+    { name: 'Fries', icon: '🍟', type: 'Non-Drink', isDrink: false }
 ];
 
 const DEFAULT_ITEMS = [
     { id: 'item_1', name: 'Beer', count: 0, icon: '🍺', isDrink: true },
-    { id: 'item_2', name: 'Vodka Shot', count: 0, icon: '🥃', isDrink: true },
+    { id: 'item_2', name: 'Vodka Shot', count: 0, icon: '🧊', isDrink: true },
     { id: 'item_3', name: 'Water', count: 0, icon: '💧', isDrink: false }
 ];
 

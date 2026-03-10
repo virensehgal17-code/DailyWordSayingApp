@@ -1,10 +1,30 @@
 // App State
 let tallyItems = [];
+let currentTheme = 'theme-midnight';
 
+// Premium high-quality image URLs for default items
 const DEFAULT_ITEMS = [
-    { id: 'item_1', name: 'Beer', count: 0, icon: '🍺', isDrink: true },
-    { id: 'item_2', name: 'Shot', count: 0, icon: '🥃', isDrink: true },
-    { id: 'item_3', name: 'Cigarette', count: 0, icon: '🚬', isDrink: false }
+    { 
+        id: 'item_1', 
+        name: 'Beer', 
+        count: 0, 
+        image: 'https://images.unsplash.com/photo-1575037614876-c3858d867ea6?auto=format&fit=crop&q=80&w=600', 
+        isDrink: true 
+    },
+    { 
+        id: 'item_2', 
+        name: 'Shot', 
+        count: 0, 
+        image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=600', 
+        isDrink: true 
+    },
+    { 
+        id: 'item_3', 
+        name: 'Cigarette', 
+        count: 0, 
+        image: 'https://images.unsplash.com/photo-1616616641666-acbf54448dc3?auto=format&fit=crop&q=80&w=600', 
+        isDrink: false 
+    }
 ];
 
 // DOM Elements
@@ -16,12 +36,28 @@ const cancelAddBtn = document.getElementById('cancel-add-btn');
 const confirmAddBtn = document.getElementById('confirm-add-btn');
 const itemNameInput = document.getElementById('item-name');
 const isDrinkInput = document.getElementById('is-drink');
+const themeDropdown = document.getElementById('theme-dropdown');
 
 // Initialize
 function init() {
+    loadTheme();
     loadData();
     renderApp();
     setupEventListeners();
+}
+
+function loadTheme() {
+    const savedTheme = localStorage.getItem('nightTallyTheme');
+    if (savedTheme) {
+        currentTheme = savedTheme;
+    }
+    applyTheme(currentTheme);
+    themeDropdown.value = currentTheme;
+}
+
+function applyTheme(theme) {
+    document.body.className = theme;
+    localStorage.setItem('nightTallyTheme', theme);
 }
 
 function loadData() {
@@ -29,6 +65,13 @@ function loadData() {
     if (saved) {
         try {
             tallyItems = JSON.parse(saved);
+            
+            // Migrate legacy (emoji) items to image items
+            tallyItems = tallyItems.map(item => {
+                if (!item.image) item.image = guessImage(item.name);
+                return item;
+            });
+            
         } catch (e) {
             console.error('Failed to parse saved items', e);
             tallyItems = [...DEFAULT_ITEMS];
@@ -47,6 +90,11 @@ function setupEventListeners() {
     addItemBtn.addEventListener('click', openModal);
     cancelAddBtn.addEventListener('click', closeModal);
     confirmAddBtn.addEventListener('click', handleAddItem);
+    
+    // Theme Switcher
+    themeDropdown.addEventListener('change', (e) => {
+        applyTheme(e.target.value);
+    });
     
     // Close modal on outside click
     addModal.addEventListener('click', (e) => {
@@ -93,24 +141,30 @@ function updateTotalDrinks() {
     totalDrinksDisplay.textContent = total;
     
     if (total !== oldTotal) {
-        // trigger animation
         totalDrinksDisplay.classList.remove('pop-anim');
-        void totalDrinksDisplay.offsetWidth; // trigger reflow
+        void totalDrinksDisplay.offsetWidth;
         totalDrinksDisplay.classList.add('pop-anim');
     }
 }
 
-// Simple logic to guess an icon based on name
-function guessIcon(name) {
+// Map keywords to high-quality unsplash queries
+function guessImage(name) {
     name = name.toLowerCase();
-    if (name.includes('water')) return '💧';
-    if (name.includes('wine')) return '🍷';
-    if (name.includes('cocktail') || name.includes('margarita')) return '🍸';
-    if (name.includes('coffee')) return '☕';
-    if (name.includes('pizza') || name.includes('food') || name.includes('slice')) return '🍕';
-    if (name.includes('money') || name.includes('spend')) return '💸';
-    if (name.includes('vape')) return '💨';
-    return '📌';
+    let query = 'drink';
+    
+    if (name.includes('water')) query = 'glass+water';
+    else if (name.includes('wine')) query = 'wine+glass';
+    else if (name.includes('cocktail') || name.includes('margarita')) query = 'cocktail';
+    else if (name.includes('coffee') || name.includes('latte')) query = 'coffee';
+    else if (name.includes('pizza') || name.includes('food')) query = 'pizza';
+    else if (name.includes('vape')) query = 'vape';
+    else if (name.includes('tea')) query = 'tea';
+    else if (!isDrinkInput.checked) query = 'abstract+neon';
+    
+    // Use Unsplash source API for deterministic abstract images if item is custom
+    // Adding a random seed ensures multiple items with the same name get different pictures
+    const seed = Math.floor(Math.random() * 1000);
+    return `https://source.unsplash.com/600x400/?${query}&sig=${seed}`;
 }
 
 function handleAddItem() {
@@ -126,7 +180,7 @@ function handleAddItem() {
         id: 'item_' + Date.now().toString(36),
         name: name,
         count: 0,
-        icon: guessIcon(name),
+        image: guessImage(name),
         isDrink: isDrink
     };
 
@@ -154,9 +208,8 @@ function updateCardDisplay(id) {
         const countSpan = document.getElementById(`count-${id}`);
         if (countSpan) {
             countSpan.textContent = item.count;
-            // animate
             countSpan.classList.remove('pop-anim');
-            void countSpan.offsetWidth; // trigger reflow
+            void countSpan.offsetWidth; 
             countSpan.classList.add('pop-anim');
         }
     }
@@ -174,14 +227,16 @@ function renderApp() {
             <button class="delete-btn" onclick="removeItem('${item.id}')" aria-label="Delete ${item.name}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
-            <div class="item-info">
-                <span class="item-icon">${item.icon}</span>
-                <h3 class="item-name">${item.name}</h3>
+            <div class="card-image-wrapper">
+                <img src="${item.image}" alt="${item.name}" class="item-image" loading="lazy">
             </div>
-            <div class="counter-controls">
-                <button class="control-btn minus" onclick="decrement('${item.id}')" aria-label="Decrease ${item.name}">-</button>
-                <span class="count-display" id="count-${item.id}">${item.count}</span>
-                <button class="control-btn plus" onclick="increment('${item.id}')" aria-label="Increase ${item.name}">+</button>
+            <div class="card-content">
+                <h3 class="item-name">${item.name}</h3>
+                <div class="counter-controls">
+                    <button class="control-btn minus" onclick="decrement('${item.id}')" aria-label="Decrease ${item.name}">-</button>
+                    <span class="count-display" id="count-${item.id}">${item.count}</span>
+                    <button class="control-btn plus" onclick="increment('${item.id}')" aria-label="Increase ${item.name}">+</button>
+                </div>
             </div>
         `;
         

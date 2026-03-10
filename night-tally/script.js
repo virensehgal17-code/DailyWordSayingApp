@@ -43,6 +43,7 @@ const addItemBtn = document.getElementById('add-item-btn');
 const cancelAddBtn = document.getElementById('cancel-add-btn');
 const confirmAddBtn = document.getElementById('confirm-add-btn');
 const themeDropdown = document.getElementById('theme-dropdown');
+const refreshAppBtn = document.getElementById('refresh-app-btn');
 
 // Modal Elements
 const searchInput = document.getElementById('item-search');
@@ -117,6 +118,23 @@ function setupEventListeners() {
     // Close modal on outside click
     addModal.addEventListener('click', (e) => {
         if (e.target === addModal) closeModal();
+    });
+
+    // Refresh App / Force Update
+    refreshAppBtn.addEventListener('click', () => {
+        if (confirm('Force update the app? This will reload the latest version from the server.')) {
+            // Unregister all service workers and reload
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(registrations => {
+                    for (let registration of registrations) {
+                        registration.unregister();
+                    }
+                    window.location.reload(true);
+                });
+            } else {
+                window.location.reload(true);
+            }
+        }
     });
 
     // Enter key to add custom if no exact match

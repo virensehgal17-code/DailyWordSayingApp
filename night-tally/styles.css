@@ -84,7 +84,7 @@ body {
 .app-container {
     width: 100%;
     max-width: 600px;
-    padding: 24px 20px 100px;
+    padding: calc(env(safe-area-inset-top, 0) + 40px) 20px 100px;
     display: flex;
     flex-direction: column;
     gap: 32px;

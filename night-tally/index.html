@@ -2,18 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Night Tally</title>
     <meta name="description" content="A sleek drink and item counter for your night out.">
+    <meta name="theme-color" content="#0d1117">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="theme-midnight">
     <div class="app-container">
         <header class="header">
-            <h1>Night Tally</h1>
+            <div class="header-top">
+                <h1>Night Tally</h1>
+                <div class="theme-selector">
+                    <select id="theme-dropdown" aria-label="Select theme">
+                        <option value="theme-midnight">Midnight</option>
+                        <option value="theme-neon">Neon Glow</option>
+                        <option value="theme-sunset">Sunset Vibes</option>
+                        <option value="theme-ocean">Deep Ocean</option>
+                    </select>
+                </div>
+            </div>
             <p>Keep track of your counts tonight</p>
             <div class="total-drinks-badge">Total Drinks: <span id="total-drinks-count">0</span></div>
         </header>
@@ -50,5 +64,15 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Register Service Worker for offline capability & auto-updates
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker registered', reg))
+                    .catch(err => console.error('Service Worker registration failed', err));
+            });
+        }
+    </script>
 </body>
 </html>

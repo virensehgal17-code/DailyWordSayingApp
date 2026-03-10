@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Night Tally</title>
+    <meta name="description" content="A sleek drink and item counter for your night out.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <h1>Night Tally</h1>
+            <p>Keep track of your counts tonight</p>
+            <div class="total-drinks-badge">Total Drinks: <span id="total-drinks-count">0</span></div>
+        </header>
+
+        <main class="tally-grid" id="tally-grid">
+            <!-- Items will be generated here by JavaScript -->
+        </main>
+
+        <button class="add-item-btn" id="add-item-btn" aria-label="Add new item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>Add Item</span>
+        </button>
+    </div>
+
+    <!-- Add Item Modal -->
+    <div class="modal-overlay" id="add-modal">
+        <div class="modal-content glass-panel">
+            <h2>Add New Tracker</h2>
+            <div class="form-group">
+                <label for="item-name">What are we tracking?</label>
+                <input type="text" id="item-name" placeholder="e.g., Water, Tequila, Fries" autocomplete="off">
+            </div>
+            <div class="form-group check-group">
+                <label>
+                    <input type="checkbox" id="is-drink" checked>
+                    Count towards "Total Drinks"
+                </label>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="cancel-add-btn">Cancel</button>
+                <button class="btn btn-primary" id="confirm-add-btn">Add Tracker</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

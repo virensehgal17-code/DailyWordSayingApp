@@ -1,4 +1,4 @@
-const CACHE_NAME = 'night-tally-v4';
+const CACHE_NAME = 'night-tally-v5';
 const ASSETS = [
   './',
   './index.html',

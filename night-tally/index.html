@@ -18,8 +18,11 @@
     <div class="app-container">
         <header class="header">
             <div class="header-top">
-                <h1>Night Tally</h1>
+                <h1>Night Tally <span id="version-tag" style="font-size: 0.7rem; vertical-align: middle; opacity: 0.5;">v4</span></h1>
                 <div class="theme-selector">
+                    <button id="refresh-app-btn" class="refresh-btn" title="Force Update">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                    </button>
                     <select id="theme-dropdown" aria-label="Select theme">
                         <option value="theme-midnight">Midnight</option>
                         <option value="theme-neon">Neon Glow</option>

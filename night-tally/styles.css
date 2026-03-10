@@ -145,6 +145,24 @@ body {
     transition: all 0.2s ease;
 }
 
+.refresh-btn {
+    background: var(--glass-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--glass-border);
+    padding: 6px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 4px;
+    vertical-align: middle;
+    transition: all 0.2s ease;
+}
+
+.refresh-btn:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: rotate(45deg);
+}
+
 #theme-dropdown:hover {
     color: var(--text-primary);
     border-color: var(--accent-color);

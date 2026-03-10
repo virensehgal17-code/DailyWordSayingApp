@@ -1,10 +1,10 @@
-const CACHE_NAME = 'wordofday-v3';
+const CACHE_NAME = 'wordofday-v4';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
-  './icons/icon-192.png',
-  './icons/icon-512.png'
+  './icons/icon-192.png?v=2',
+  './icons/icon-512.png?v=2'
 ];
 
 // Install — cache app shell

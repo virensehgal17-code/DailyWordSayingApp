@@ -98,10 +98,10 @@ body {
 
 .header-top {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    position: relative;
+    gap: 12px;
+    margin-bottom: 12px;
 }
 
 .header-top h1 {
@@ -116,9 +116,10 @@ body {
 
 /* Theme Switcher */
 .theme-selector {
-    position: absolute;
-    right: 0;
-    top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 5;
 }
 
 #theme-dropdown {

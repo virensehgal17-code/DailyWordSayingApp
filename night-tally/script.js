@@ -8,7 +8,7 @@ const DEFAULT_ITEMS = [
         id: 'item_1', 
         name: 'Beer', 
         count: 0, 
-        image: 'https://images.unsplash.com/photo-1575037614876-c3858d867ea6?auto=format&fit=crop&q=80&w=600', 
+        image: 'https://images.unsplash.com/photo-1614316346936-aa8ffdcbe5da?auto=format&fit=crop&q=80&w=600', 
         isDrink: true 
     },
     { 
@@ -22,7 +22,7 @@ const DEFAULT_ITEMS = [
         id: 'item_3', 
         name: 'Cigarette', 
         count: 0, 
-        image: 'https://images.unsplash.com/photo-1616616641666-acbf54448dc3?auto=format&fit=crop&q=80&w=600', 
+        image: 'https://images.unsplash.com/photo-1628191081698-3a95f7470659?auto=format&fit=crop&q=80&w=600', 
         isDrink: false 
     }
 ];
@@ -147,24 +147,10 @@ function updateTotalDrinks() {
     }
 }
 
-// Map keywords to high-quality unsplash queries
+// Map keywords to high-quality deterministic images using Picsum based on item name string
 function guessImage(name) {
-    name = name.toLowerCase();
-    let query = 'drink';
-    
-    if (name.includes('water')) query = 'glass+water';
-    else if (name.includes('wine')) query = 'wine+glass';
-    else if (name.includes('cocktail') || name.includes('margarita')) query = 'cocktail';
-    else if (name.includes('coffee') || name.includes('latte')) query = 'coffee';
-    else if (name.includes('pizza') || name.includes('food')) query = 'pizza';
-    else if (name.includes('vape')) query = 'vape';
-    else if (name.includes('tea')) query = 'tea';
-    else if (!isDrinkInput.checked) query = 'abstract+neon';
-    
-    // Use Unsplash source API for deterministic abstract images if item is custom
-    // Adding a random seed ensures multiple items with the same name get different pictures
-    const seed = Math.floor(Math.random() * 1000);
-    return `https://source.unsplash.com/600x400/?${query}&sig=${seed}`;
+    name = name.toLowerCase().trim().replace(/\s+/g, '-');
+    return `https://picsum.photos/seed/${name}/600/400`;
 }
 
 function handleAddItem() {
